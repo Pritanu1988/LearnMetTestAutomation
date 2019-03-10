@@ -17,7 +17,7 @@ public class initiateBrowser
 	 Properties prop = new Properties();
      List<String> resourcelst = new ArrayList<String>();
 	 try {
-	     prop.load(new FileInputStream("C:/LearnMetAutomationWorkspace/LearnMetTestAutomation/src/main/resources/config.properties"));
+	     prop.load(new FileInputStream("C:\\Users\\prita\\git\\LearnMetTestAutomation\\LearnMetTestAutomation\\src\\main\\resources\\config.properties"));
 	     resourcelst.add(prop.getProperty("APPURL"));
 	     resourcelst.add(prop.getProperty("INPUTSHEETLOCATION"));
 	     resourcelst.add(prop.getProperty("CHROMEDRIVERL_LOC"));

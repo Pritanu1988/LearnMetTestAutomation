@@ -23,7 +23,14 @@ public class ReadxlsxFile
  public HashMap<Integer, List<String>> Readxlsx(String sheetname) throws IOException
  {
 	HashMap<Integer, List<String>> hm = new HashMap<Integer, List<String>>();
-    File excelFile = new File("C:\\LearnMetAutomationWorkspace\\InputSheet1.xlsx");
+	 List<String> reslist = iB.PropertyFileReader();
+	 String str[] = new String[reslist.size()];   	  
+	  for (int i = 0; i < reslist.size(); i++) { 
+		      		  
+         str[i] = reslist.get(i); 
+     } 
+	  String excelloc = str[1];
+	File excelFile = new File(excelloc);
     FileInputStream fis = new FileInputStream(excelFile);
 	XSSFWorkbook workbook = new XSSFWorkbook(fis);
     XSSFSheet sheet = workbook.getSheet(sheetname);
