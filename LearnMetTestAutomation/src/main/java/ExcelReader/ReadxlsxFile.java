@@ -65,4 +65,43 @@ public class ReadxlsxFile
       fis.close();
       return hm;
  } 
+ public HashMap<Integer, List<String>> ReadModuleName(String sheetname) throws IOException
+ {
+	 HashMap<Integer, List<String>> modname = new HashMap<Integer, List<String>>();
+	 List<String> reslist = iB.PropertyFileReader();
+	 String str[] = new String[reslist.size()];   	  
+	  for (int i = 0; i < reslist.size(); i++) { 
+		      		  
+         str[i] = reslist.get(i); 
+     } 
+	  String excelloc = str[1];
+	File excelFile = new File(excelloc);
+    FileInputStream fismod = new FileInputStream(excelFile);
+	XSSFWorkbook wb = new XSSFWorkbook(fismod);
+    XSSFSheet sw = wb.getSheet(sheetname);
+    Iterator<Row> rowit = sw.iterator();
+    int ct=0;
+    int count=1;
+    while(rowit.hasNext()) {
+        Row row = rowit.next();
+        
+        Iterator<Cell> cellIterator = row.cellIterator();
+        if(ct!=0)
+        {
+        while (cellIterator.hasNext()) {
+          List<String> listmod =new ArrayList<String>();
+          //listmod.add(tus.setSequenceNo(row.getCell(0).getStringCellValue()));
+          listmod.add(tus.setModuleName(row.getCell(1).getStringCellValue()));
+          modname.put(count, listmod);
+          break;
+        }
+        count++;
+        }        
+        ct++;       
+      }
+
+      wb.close();
+      fismod.close();
+	 return modname;	 
+ }
 }

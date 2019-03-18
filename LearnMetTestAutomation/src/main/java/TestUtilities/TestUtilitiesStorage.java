@@ -9,7 +9,21 @@ public class TestUtilitiesStorage {
 	public String Method;
 	public String Parameter;
 	public String Delay;
+	public String SequenceNo;
+	public String ModuleName;
 	
+	public String getModuleName() {
+		return ModuleName;
+	}
+	public String setModuleName(String moduleName) {
+		return ModuleName = moduleName;
+	}
+	public String getSequenceNo() {
+		return SequenceNo;
+	}
+	public String setSequenceNo(String sequenceNo) {
+		return SequenceNo = sequenceNo;
+	}
 	public String getTestStepNo() {
 		return TestStepNo;
 	}
