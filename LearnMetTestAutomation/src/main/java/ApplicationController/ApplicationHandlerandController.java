@@ -59,6 +59,7 @@ public class ApplicationHandlerandController extends initiateBrowser
 	    }catch(Exception e)
 	 {
     	  exttest.log(Status.FAIL, ts.getTestDetails());
+    	  e.printStackTrace();
 	 }
 	}
 	}
