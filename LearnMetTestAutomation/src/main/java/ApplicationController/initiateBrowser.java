@@ -21,6 +21,8 @@ public class initiateBrowser
 	     resourcelst.add(prop.getProperty("APPURL"));
 	     resourcelst.add(prop.getProperty("INPUTSHEETLOCATION"));
 	     resourcelst.add(prop.getProperty("CHROMEDRIVERL_LOC"));
+	     resourcelst.add(prop.getProperty("REPORT_DROPLOC"));
+	     resourcelst.add(prop.getProperty("INPUTSHEETNAME"));
 	 } catch (IOException e) {
 	     e.printStackTrace();
 	 }

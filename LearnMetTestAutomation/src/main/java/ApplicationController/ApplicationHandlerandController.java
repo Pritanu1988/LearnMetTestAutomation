@@ -1,6 +1,9 @@
 package ApplicationController;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
@@ -17,10 +20,22 @@ import ExcelReader.ReadxlsxFile;
 public class ApplicationHandlerandController extends initiateBrowser
 {
 	TestUtilitiesStorage ts = new TestUtilitiesStorage();
-	ExtentHtmlReporter report =new ExtentHtmlReporter("C:\\LearnMetAutomationWorkspace\\CourseCreation.html");
+	ExtentHtmlReporter report = null;
 	ExtentReports extent = new ExtentReports();
+	Date date= new Date();
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
 	public void teststepEval() throws IOException, InterruptedException
 	{
+	List<String> reslist = PropertyFileReader();
+	String strrep[] = new String[reslist.size()];   	  
+	  for (int i = 0; i < reslist.size(); i++) { 
+			      		  
+		  strrep[i] = reslist.get(i); 
+	   } 
+	  long time = date.getTime();
+	  Timestamp tstp = new Timestamp(time);	  
+	  String reportloc = strrep[3]+strrep[4]+"_"+sdf.format(tstp)+".html";
+    report=new ExtentHtmlReporter(reportloc);
 	initBrowser();
 	ReadxlsxFile rx =new ReadxlsxFile();
 	BrowserEventController bc = new BrowserEventController();
