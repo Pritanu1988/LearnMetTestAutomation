@@ -41,6 +41,7 @@ public class initiateBrowser
 	 System.setProperty("webdriver.chrome.driver", chromedriverloc);
 	 driver=new ChromeDriver();	 
 	 driver.get(appurl); 
+	 System.out.println(appurl);
 	 driver.manage().window().maximize();
  }
 }
